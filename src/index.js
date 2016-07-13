@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const API_KEY = "AIzaSyBwygzPMQ3ZwppySQuo_Vs7cj7zLbjIpzA"; 
+import SearchBar from './components/search_bar';
+
+const API_KEY = "AIzaSyBwygzPMQ3ZwppySQuo_Vs7cj7zLbjIpzA";
 
 // Create a new component.
 // This component should produce some HTML
@@ -23,7 +25,11 @@ const App = function() {
 //ES6 syntax for function, => fat arrow, except for the keyword 'this'
 //this function is identical to the function commented out above
 const App = () => {
-  return <div>Hi!</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 
