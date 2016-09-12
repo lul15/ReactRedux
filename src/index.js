@@ -1,9 +1,10 @@
-import React from 'react';
+import React {Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 
 const API_KEY = "AIzaSyBwygzPMQ3ZwppySQuo_Vs7cj7zLbjIpzA";
+
 
 // Create a new component.
 // This component should produce some HTML
@@ -12,24 +13,28 @@ const - ES2016
   declaring a variable, this is the final constant, never going to be re-assigned
 App - assigned to a function, it's a class, not an instance of the component
   need to be instantiated before being passed
-  <App></App> makes a component instance
-  <App /> self-closing tag
-<div>Hi!</div> - JSX
-  JSX - uses webpack and Babel to transpile into JavaScript
 */
-/*
-const App = function() {
-  return <div>Hi!</div>;
-}
-*/
-//ES6 syntax for function, => fat arrow, except for the keyword 'this'
-//this function is identical to the function commented out above
-const App = () => {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
+//changed from functional to class -component, in order to use state
+class App extends Component = () => {
+  constructor(props) {
+    super(props);
+
+    this.state = {videos: [] };
+
+    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+      this.setState({videos});
+      //ES6: this.setStatate({videos}) = this.setState({videos: videos}); prop and value has to have same name
+      
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar />
+        </div>
+      );
+    }
 }
 
 
