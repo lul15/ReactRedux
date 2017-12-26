@@ -7,15 +7,13 @@ import VideoDetail from './components/video_detail';
 const API_KEY = "AIzaSyBwygzPMQ3ZwppySQuo_Vs7cj7zLbjIpzA";
 
 
-// Create a new component.
-// This component should produce some HTML
+
 /*
 const - ES2016
   declaring a variable, this is the final constant, never going to be re-assigned
 App - assigned to a function, it's a class, not an instance of the component
   need to be instantiated before being passed
 */
-//changed from functional to class -component, in order to use state
 class App extends Component {
   constructor(props) {
     super(props);
