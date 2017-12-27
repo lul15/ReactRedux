@@ -7,7 +7,6 @@ import VideoDetail from './components/video_detail';
 const API_KEY = "AIzaSyBwygzPMQ3ZwppySQuo_Vs7cj7zLbjIpzA";
 
 
-
 /*
 const - ES2016
   declaring a variable, this is the final constant, never going to be re-assigned
@@ -23,19 +22,24 @@ class App extends Component {
       selectedVideo: null
     };
 
-    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    this.videoSearch('surfboards');
+  }
+
+  videoSearch(term) {
+    YTSearch({key: API_KEY, term: term}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
       });
-      //ES6: this.setStatate({videos}) = this.setState({videos: videos}); prop and value has to have same name
+      /*ES6: this.setState({videos}) = this.setState({videos: videos});
+      prop and value has to have same name*/
     });
   }
 
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
