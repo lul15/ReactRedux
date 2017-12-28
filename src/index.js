@@ -13,6 +13,7 @@ const - ES2016
   declaring a variable, this is the final constant, never going to be re-assigned
 App - assigned to a function, it's a class, not an instance of the component
   need to be instantiated before being passed
+Class - uses state
 */
 class App extends Component {
   constructor(props) {
